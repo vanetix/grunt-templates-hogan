@@ -1,0 +1,1 @@
+this["Templates"] = this["Templates"] || {};
