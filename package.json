@@ -1,27 +1,27 @@
 {
-  "name": "grunt-hogan",
+  "name": "grunt-contrib-hogan",
   "description": "Hogan template compiler task for grunt.",
   "version": "0.0.1",
-  "homepage": "https://github.com/vanetix/grunt-hogan",
+  "homepage": "https://github.com/vanetix/grunt-contrib-hogan",
   "author": {
     "name": "Matt McFarland",
     "email": "matmcfarland@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/vanetix/grunt-hogan.git"
+    "url": "git://github.com/vanetix/grunt-contrib-hogan.git"
   },
   "bugs": {
-    "url": "https://github.com/vanetix/grunt-hogan/issues"
+    "url": "https://github.com/vanetix/grunt-contrib-hogan/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/vanetix/grunt-hogan/blob/master/LICENSE-MIT"
+      "url": "https://github.com/vanetix/grunt-contrib-hogan/blob/master/LICENSE-MIT"
     }
   ],
   "main": "grunt.js",
-  "bin": "bin/grunt-hogan",
+  "bin": "bin/grunt-contrib-hogan",
   "engines": {
     "node": "*"
   },
@@ -36,6 +36,6 @@
   },
   "keywords": [
     "hogan",
-    "grunt-hogan"
+    "grunt-contrib-hogan"
   ]
 }

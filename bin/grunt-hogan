@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('grunt').npmTasks('grunt-hogan').cli();
+require('grunt').npmTasks('grunt-contrib-hogan').cli();

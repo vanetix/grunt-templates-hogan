@@ -1,6 +1,6 @@
 /*
- * grunt-hogan
- * https://github.com/vanetix/grunt-hogan
+ * grunt--contrib-hogan
+ * https://github.com/vanetix/grunt-contrib-hogan
  *
  * Copyright (c) 2012 Matt McFarland
  * Licensed under the MIT license.
