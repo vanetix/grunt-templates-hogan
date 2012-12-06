@@ -29,10 +29,10 @@
     "test": "grunt"
   },
   "devDependencies": {
-    "grunt": ">=0.3.x",
-    "grunt-contrib-clean": ">=0.3.x",
-    "grunt-lib-contrib": ">=0.4.x",
-    "hogan.js": ">=2.0.x"
+    "grunt": "0.3.x",
+    "grunt-contrib-clean": "0.3.x",
+    "grunt-lib-contrib": "0.4.x",
+    "hogan.js": "2.0.x"
   },
   "keywords": [
     "hogan",
