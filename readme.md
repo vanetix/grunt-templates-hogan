@@ -1,5 +1,6 @@
 # grunt-contrib-hogan
 [![Build Status](https://secure.travis-ci.org/vanetix/grunt-contrib-hogan.png?branch=master)](https://travis-ci.org/vanetix/grunt-contrib-hogan)
+
 Hogan template compiler task for grunt.
 
 
