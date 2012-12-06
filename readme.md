@@ -61,6 +61,7 @@ Strip out spaces from the compiled templates, and make the output look a little 
 ### defaultName `function`
 ***args:***
 - `filename`
+
 Function that returns the key that the template file will be assigned.
 
 *Example:*
