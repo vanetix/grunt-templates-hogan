@@ -21,7 +21,8 @@ var grunt = require('grunt');
 */
 
 exports.hogan = {
-  main: function(test) {
+
+  base: function(test) {
     var expect,
         result;
 
@@ -31,6 +32,58 @@ exports.hogan = {
     result = grunt.file.read("build/hulked.js");
     test.equal(expect, result, "should compile base template correctly");
 
-    test.done();
+    return test.done();
+  },
+
+  badName: function(test) {
+    var expect,
+        result;
+
+    test.expect(1);
+
+    expect = grunt.file.read("test/expected/bad.js");
+    result = grunt.file.read("build/bad.js");
+    test.equal(expect, result, "should escape bad filenames");
+
+    return test.done();
+    },
+
+  prettyAmd: function(test) {
+    var expect,
+        result;
+
+    test.expect(1);
+
+    expect = grunt.file.read("test/expected/prettyAmd.js");
+    result = grunt.file.read("build/prettyAmd.js");
+    test.equal(expect, result, "should compile AMD with pretty option");
+
+    return test.done();
+  },
+
+  prettify: function(test) {
+    var expect,
+        result;
+
+    test.expect(1);
+
+    expect = grunt.file.read("test/expected/pretty.js");
+    result = grunt.file.read("build/pretty.js");
+    test.equal(expect, result, "should compile pretty template");
+
+    return test.done();
+  },
+
+  amdWrapper: function(test) {
+    var expect,
+        result;
+
+    test.expect(1);
+
+    expect = grunt.file.read("test/expected/amdWrapper.js");
+    result = grunt.file.read("build/amdWrapper.js");
+    test.equal(expect, result, "should build a template wrapped for AMD");
+
+    return test.done();
   }
 };
