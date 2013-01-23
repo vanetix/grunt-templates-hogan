@@ -61,7 +61,7 @@ module.exports = function(grunt) {
 
         filename = options.defaultName(file);
         output.push(nsInfo.namespace +
-          "[" + JSON.stringify(filename) + "] = " + compiled + ";");
+          "[" + JSON.stringify(filename) + "] = new Hogan.Template(" + compiled + ");");
       });
 
       if(output.length > 0) {
