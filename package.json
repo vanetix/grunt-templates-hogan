@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-hogan",
   "description": "Hogan template compiler task for grunt.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/vanetix/grunt-contrib-hogan",
   "author": {
     "name": "Matt McFarland",

@@ -97,6 +97,7 @@ hogan: {
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
 
 ## Release History
+#### 0.0.2 - No longer have to initialize a new Hogan.Template for every template you want to use.
 #### 0.0.1 - Initial release
 
 ## License
