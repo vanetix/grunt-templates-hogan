@@ -16,15 +16,10 @@ module.exports = function(grunt) {
    */
 
   grunt.registerMultiTask('hogan', 'Compile hogan templates.', function() {
-    var src,
-        nsInfo,
-        options,
-        compiled,
-        srcFiles,
-        filename,
-        output = [];
+    var src, nsInfo, options, compiled,
+        srcFiles, filename, output = [];
 
-    options = helpers.options(this, {
+    options = this.options({
       namespace: "Templates",
       templateOptions: { asString: true },
       defaultName: function(filename) {
@@ -34,16 +29,13 @@ module.exports = function(grunt) {
 
     nsInfo = helpers.getNamespaceDeclaration(options.namespace);
 
-    // Shim for processing file args prior to grunt v0.4
-    this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
-
     this.files.forEach(function(files) {
       srcFiles = grunt.file.expandFiles(files.src);
       srcFiles.forEach(function(file) {
         src = grunt.file.read(file);
 
         /**
-         * Log the error to the console if an error is throw
+         * Log the error to the console if an error is thrown
          * while compiling template
          */
 
