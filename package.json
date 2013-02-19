@@ -1,43 +1,35 @@
 {
   "name": "grunt-contrib-hogan",
   "description": "Hogan template compiler task for grunt.",
-  "version": "0.0.2",
-  "homepage": "https://github.com/vanetix/grunt-contrib-hogan",
-  "author": {
-    "name": "Matt McFarland",
-    "email": "matmcfarland@gmail.com"
-  },
+  "version": "0.1.0",
+  "author": "vanetix <matmcfarland@gmail.com>",
+  "main": "Gruntfile.js",
+  "bin": "bin/grunt-contrib-hogan",
   "repository": {
     "type": "git",
     "url": "git://github.com/vanetix/grunt-contrib-hogan.git"
-  },
-  "bugs": {
-    "url": "https://github.com/vanetix/grunt-contrib-hogan/issues"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/vanetix/grunt-contrib-hogan/blob/master/LICENSE-MIT"
-    }
-  ],
-  "main": "grunt.js",
-  "bin": "bin/grunt-contrib-hogan",
-  "engines": {
-    "node": "*"
   },
   "scripts": {
     "test": "grunt"
   },
   "devDependencies": {
-    "grunt": "0.3.x"
+    "grunt": "~0.4.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-nodeunit": "~0.1.2"
   },
   "dependencies": {
-    "grunt-contrib-clean": "0.3.x",
-    "grunt-lib-contrib": "0.4.x",
-    "hogan.js": "2.0.x"
+    "hogan.js": "~2.0.0",
+    "grunt-lib-contrib": "~0.5.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
   },
   "keywords": [
     "hogan",
-    "grunt-contrib-hogan"
-  ]
+    "gruntplugin"
+  ],
+  "engines": {
+    "node": "*"
+  }
 }

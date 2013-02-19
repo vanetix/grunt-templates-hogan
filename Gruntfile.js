@@ -2,35 +2,24 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    test: {
-      files: ['test/index.js']
-    },
-
-    lint: {
-      files: ['grunt.js', 'tasks/*.js', '<config:test.files>']
-    },
 
     jshint: {
+      all: [
+        'Gruntfile.js',
+        'tasks/hogan.js',
+        '<%= nodeunit.tests %>'
+      ],
       options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        boss: true,
-        eqnull: true,
-        node: true,
-        es5: true,
-        strict: false
-      },
-      globals: {}
+        jshintrc: '.jshintrc'
+      }
+    },
+
+    nodeunit: {
+      tests: ['test/index.js']
     },
 
     clean: {
-      test: ['build']
+      tests: ['build']
     },
 
     hogan: {
@@ -75,10 +64,15 @@ module.exports = function(grunt) {
   // Load local tasks.
   grunt.loadTasks('tasks');
 
-  // Use clean task
+  // Load plugins used by this task gruntfile
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  // Lint, clean, compile, and run all tests
-  grunt.registerTask('default', 'lint clean hogan test');
+  // Clean, compile, and run all tests
+  grunt.registerTask('test', ['clean', 'hogan', 'nodeunit']);
+
+  // By default run jshint and test
+  grunt.registerTask('default', ['jshint', 'test']);
 
 };
