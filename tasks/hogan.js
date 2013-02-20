@@ -30,8 +30,7 @@ module.exports = function(grunt) {
     nsInfo = helpers.getNamespaceDeclaration(options.namespace);
 
     this.files.forEach(function(files) {
-      srcFiles = grunt.file.expandFiles(files.src);
-      srcFiles.forEach(function(file) {
+      files.src.forEach(function(file) {
         src = grunt.file.read(file);
 
         /**
