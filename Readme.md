@@ -1,5 +1,4 @@
-# grunt-contrib-hogan
-[![Build Status](https://secure.travis-ci.org/vanetix/grunt-contrib-hogan.png?branch=master)](https://travis-ci.org/vanetix/grunt-contrib-hogan)
+# grunt-contrib-hogan [![Build Status](https://secure.travis-ci.org/vanetix/grunt-contrib-hogan.png?branch=master)](https://travis-ci.org/vanetix/grunt-contrib-hogan)
 
 Hogan template compiler task for grunt.
 
@@ -93,12 +92,10 @@ hogan: {
     }
 ```
 
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
-
 ## Release History
-#### 0.0.2 - No longer have to initialize a new Hogan.Template for every template you want to use.
-#### 0.0.1 - Initial release
+- 0.1.0 - Updated for grunt release 0.4
+- 0.0.2 - No longer have to initialize a new Hogan.Template for every template you want to use.
+- 0.0.1 - Initial release
 
 ## License
 Copyright (c) 2012 Matt McFarland
