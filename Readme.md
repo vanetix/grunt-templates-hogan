@@ -81,7 +81,7 @@ hogan: {
       publish: {
         options: {
           prettify: true,
-          templateName: function(file) {
+          defaultName: function(file) {
             return file.toUppercase();
           }
         },
