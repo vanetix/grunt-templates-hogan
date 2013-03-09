@@ -1,4 +1,5 @@
-var grunt = require('grunt');
+var grunt = require('grunt'),
+  normalize = grunt.util.normalizelf;
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -28,8 +29,8 @@ exports.hogan = {
 
     test.expect(1);
 
-    expect = grunt.file.read("test/expected/hulked.js");
-    result = grunt.file.read("build/hulked.js");
+    expect = normalize(grunt.file.read("test/expected/hulked.js"));
+    result = normalize(grunt.file.read("build/hulked.js"));
     test.equal(expect, result, "should compile base template correctly");
 
     return test.done();
@@ -41,8 +42,8 @@ exports.hogan = {
 
     test.expect(1);
 
-    expect = grunt.file.read("test/expected/bad.js");
-    result = grunt.file.read("build/bad.js");
+    expect = normalize(grunt.file.read("test/expected/bad.js"));
+    result = normalize(grunt.file.read("build/bad.js"));
     test.equal(expect, result, "should escape bad filenames");
 
     return test.done();
@@ -54,8 +55,8 @@ exports.hogan = {
 
     test.expect(1);
 
-    expect = grunt.file.read("test/expected/prettyAmd.js");
-    result = grunt.file.read("build/prettyAmd.js");
+    expect = normalize(grunt.file.read("test/expected/prettyAmd.js"));
+    result = normalize(grunt.file.read("build/prettyAmd.js"));
     test.equal(expect, result, "should compile AMD with pretty option");
 
     return test.done();
@@ -67,8 +68,8 @@ exports.hogan = {
 
     test.expect(1);
 
-    expect = grunt.file.read("test/expected/pretty.js");
-    result = grunt.file.read("build/pretty.js");
+    expect = normalize(grunt.file.read("test/expected/pretty.js"));
+    result = normalize(grunt.file.read("build/pretty.js"));
     test.equal(expect, result, "should compile pretty template");
 
     return test.done();
@@ -80,9 +81,22 @@ exports.hogan = {
 
     test.expect(1);
 
-    expect = grunt.file.read("test/expected/amdWrapper.js");
-    result = grunt.file.read("build/amdWrapper.js");
+    expect = normalize(grunt.file.read("test/expected/amdWrapper.js"));
+    result = normalize(grunt.file.read("build/amdWrapper.js"));
     test.equal(expect, result, "should build a template wrapped for AMD");
+
+    return test.done();
+  },
+
+  commonJsWrapper: function(test) {
+    var expect,
+        result;
+
+    test.expect(1);
+
+    expect = normalize(grunt.file.read("test/expected/commonJsWrapper.js"));
+    result = normalize(grunt.file.read("build/commonJsWrapper.js"));
+    test.equal(expect, result, "should build a template wrapped for CommonJS");
 
     return test.done();
   }
