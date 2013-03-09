@@ -67,6 +67,9 @@ module.exports = function(grunt) {
           output.unshift("define(function() {");
           output.push("  return " + nsInfo.namespace + ";\n});");
         }
+        if(options.commonJsWrapper) {
+          output.push("module.exports = " + nsInfo.namespace + ";");
+        }
         grunt.file.write(files.dest, output.join("\n\n"));
         grunt.log.writeln("File '" + files.dest + "' created.");
       }

@@ -86,5 +86,18 @@ exports.hogan = {
     test.equal(expect, result, "should build a template wrapped for AMD");
 
     return test.done();
+  },
+
+  commonJsWrapper: function(test) {
+    var expect,
+        result;
+
+    test.expect(1);
+
+    expect = normalize(grunt.file.read("test/expected/commonJsWrapper.js"));
+    result = normalize(grunt.file.read("build/commonJsWrapper.js"));
+    test.equal(expect, result, "should build a template wrapped for CommonJS");
+
+    return test.done();
   }
 };
