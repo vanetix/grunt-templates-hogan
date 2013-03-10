@@ -57,6 +57,17 @@ module.exports = function(grunt) {
         files: {
           "build/amdWrapper.js": ["test/fixtures/template.html"]
         }
+      },
+      commonJsWrapper: {
+        options: {
+          defaultName: function(filename) {
+            return filename.split('/').pop();
+          },
+          commonJsWrapper: true
+        },
+        files: {
+          "build/commonJsWrapper.js": ["test/fixtures/template.html"]
+        }
       }
     }
   });
