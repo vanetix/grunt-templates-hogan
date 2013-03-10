@@ -54,6 +54,27 @@ define(function() {
 });
 ```
 
+### commonJsWrapper `boolean`
+Wraps the compiled templates in a CommonJS `module.exports` for use with [component(1)](https://github.com/component/component).
+
+*Example:*
+```javascript
+options: {
+  commonJsWrapper: true
+}
+```
+*Produces:*
+```javascript
+this["Templates"] = this["Templates"] || {};
+
+module.exports = this["Templates"];
+
+// with "component build" this will be wrapped in:
+// require.register("project/file", function(exports, require, module){
+// ...
+// });
+```
+
 ### prettify `boolean`
 Strip out spaces from the compiled templates, and make the output look a little better by indenting template definitions.
 
