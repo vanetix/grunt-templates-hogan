@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-hogan",
   "description": "Hogan template compiler task for grunt.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "vanetix <matmcfarland@gmail.com>",
   "main": "Gruntfile.js",
   "bin": "bin/grunt-contrib-hogan",
