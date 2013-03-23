@@ -103,7 +103,7 @@ hogan: {
         options: {
           prettify: true,
           defaultName: function(file) {
-            return file.toUppercase();
+            return file.toUpperCase();
           }
         },
         files:{
