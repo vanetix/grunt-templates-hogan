@@ -36,6 +36,23 @@ exports.hogan = {
     return test.done();
   },
 
+  multiple: function(test) {
+    var expect,
+        result;
+
+    test.expect(2);
+
+    expect = normalize(grunt.file.read("test/expected/hulked.js"));
+    result = normalize(grunt.file.read("build/first.js"));
+    test.equal(expect, result, "should compile multiple files independently");
+
+    expect = normalize(grunt.file.read("test/expected/bad.js"));
+    result = normalize(grunt.file.read("build/second.js"));
+    test.equal(expect, result, "should compile multiple files independently");
+
+    return test.done();
+  },
+
   badName: function(test) {
     var expect,
         result;
