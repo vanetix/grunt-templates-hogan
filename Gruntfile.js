@@ -28,6 +28,12 @@ module.exports = function(grunt) {
           "build/hulked.js": ["test/fixtures/template.html"]
         }
       },
+      multiple: {
+        files:{
+          "build/first.js": ["test/fixtures/template.html"],
+          "build/second.js": ["test/fixtures/it's-a-bad-name.html"]
+        }
+      },
       badName: {
         files: {
           "build/bad.js": ["test/fixtures/*bad*"]
