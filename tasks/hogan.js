@@ -17,7 +17,8 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('hogan', 'Compile hogan templates.', function() {
     var src, nsInfo, options, compiled,
-        srcFiles, filename, output = [];
+        srcFiles, filename, output = [],
+        head, moduleNames, variableNames;
 
     options = this.options({
       namespace: "Templates",
@@ -64,7 +65,24 @@ module.exports = function(grunt) {
               output[idx] = "  " + line;
             });
           }
-          output.unshift("define(function() {");
+          if(options.amdRequire && options.amdRequire instanceof Object) {
+            head = ["define(["];
+            moduleNames = [];
+            variableNames = [];
+            for (var key in options.amdRequire) {
+              if("string" !== typeof options.amdRequire[key]) {
+                grunt.fail.warn("options.amdRequire should be a object of {String:String}.");
+                continue;
+              }
+              moduleNames.push("'" + key + "'");
+              variableNames.push(options.amdRequire[key]);
+            }
+            head.push(moduleNames.join(","));
+            head.push("], function(", variableNames.join(","), ") {");
+            output.unshift(head.join(''));
+          } else {
+            output.unshift("define(function() {");
+          }
           output.push("  return " + nsInfo.namespace + ";\n});");
         }
         if(options.commonJsWrapper) {
