@@ -53,7 +53,7 @@ define(function() {
   return this["Templates"];
 });
 ```
-### amdRequire `boolean`
+### amdRequire `object`
 Wraps the compiled templates with the require.js `define(function() {})` function.
 
 *Example:*
