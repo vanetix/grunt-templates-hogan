@@ -53,6 +53,27 @@ define(function() {
   return this["Templates"];
 });
 ```
+### amdRequire `object`
+Wraps the compiled templates with the require.js `define(function() {})` function.
+
+*Example:*
+```javascript
+options: {
+  amdWrapper: true,
+  amdRequire: {
+    hogan: "Hogan",
+    otherLibrary: "$"
+  }
+}
+```
+*Produces:*
+```javascript
+define(["hogan","otherLibrary"], function(Hogan, $) {
+  this["Templates"] = this["Templates"] || {};
+
+  return this["Templates"];
+});
+```
 
 ### commonJsWrapper `boolean`
 Wraps the compiled templates in a CommonJS `module.exports` for use with [component(1)](https://github.com/component/component).

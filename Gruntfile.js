@@ -48,6 +48,18 @@ module.exports = function(grunt) {
           "build/prettyAmd.js": ["test/fixtures/template.html"]
         }
       },
+      customAmd: {
+        options: {
+          amdWrapper: true,
+          amdRequire: {
+            hogan: "Hogan",
+            otherDependency: "$"
+          }
+        },
+        files:{
+          "build/customAmd.js": ["test/fixtures/template.html"]
+        }
+      },
       prettify: {
         options: {
           prettify: true

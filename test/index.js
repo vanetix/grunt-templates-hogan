@@ -79,6 +79,18 @@ exports.hogan = {
     return test.done();
   },
 
+  customAmd: function(test) {
+    var expect,
+        result;
+
+    test.expect(1);
+    expect = normalize(grunt.file.read("test/expected/customAmd.js"));
+    result = normalize(grunt.file.read("build/customAmd.js"));
+    test.equal(expect, result, "should compile AMD with specified requires");
+
+    return test.done();
+  },
+
   prettify: function(test) {
     var expect,
         result;
