@@ -88,7 +88,9 @@ options: {
 ```javascript
 this["Templates"] = this["Templates"] || {};
 
-module.exports = this["Templates"];
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  module.exports = this["Templates"];
+}
 
 // with "component build" this will be wrapped in:
 // require.register("project/file", function(exports, require, module){
