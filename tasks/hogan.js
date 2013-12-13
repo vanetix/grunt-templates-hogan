@@ -90,7 +90,7 @@ module.exports = function(grunt) {
           output.push("  module.exports = " + nsInfo.namespace + ";");
           output.push("}");
         }
-        grunt.file.write(files.dest, output.join("\n\n"));
+        grunt.file.write(files.dest, output.join("\n"));
         grunt.log.writeln("File '" + files.dest + "' created.");
         output = [];
       }
