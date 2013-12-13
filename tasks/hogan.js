@@ -61,29 +61,34 @@ module.exports = function(grunt) {
 
         if(options.amdWrapper) {
           if(options.prettify) {
-            output.forEach(function(line, idx) {
-              output[idx] = "  " + line;
+            output = output.map(function(line) {
+              return "  " + line;
             });
           }
+
           if(options.amdRequire && options.amdRequire instanceof Object) {
             head = ["define(["];
             moduleNames = [];
             variableNames = [];
+
             for (var key in options.amdRequire) {
               if("string" !== typeof options.amdRequire[key]) {
                 grunt.fail.warn("options.amdRequire should be a object of {String:String}.");
                 continue;
               }
+
               moduleNames.push("'" + key + "'");
               variableNames.push(options.amdRequire[key]);
             }
+
             head.push(moduleNames.join(","));
             head.push("], function(", variableNames.join(","), ") {");
             output.unshift(head.join(''));
           } else {
             output.unshift("define(function() {");
           }
-          output.push("  return " + nsInfo.namespace + ";\n});");
+
+          output.push((options.prettify ? "  " : "") + "return " + nsInfo.namespace + ";\n});");
         }
         if(options.commonJsWrapper) {
           output.push("\nif(typeof module !== 'undefined' && typeof module.exports !== 'undefined') {");
