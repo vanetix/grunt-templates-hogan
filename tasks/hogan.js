@@ -86,7 +86,7 @@ module.exports = function(grunt) {
           output.push("  return " + nsInfo.namespace + ";\n});");
         }
         if(options.commonJsWrapper) {
-          output.push("if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {")
+          output.push("\nif(typeof module !== 'undefined' && typeof module.exports !== 'undefined') {");
           output.push("  module.exports = " + nsInfo.namespace + ";");
           output.push("}");
         }
