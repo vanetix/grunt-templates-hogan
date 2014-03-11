@@ -1,13 +1,13 @@
 {
-  "name": "grunt-contrib-hogan",
+  "name": "grunt-templates-hogan",
   "description": "Hogan template compiler task for grunt.",
   "version": "0.2.4",
   "author": "vanetix <matmcfarland@gmail.com>",
   "main": "Gruntfile.js",
-  "bin": "bin/grunt-contrib-hogan",
+  "bin": "bin/grunt-templates-hogan",
   "repository": {
     "type": "git",
-    "url": "git://github.com/vanetix/grunt-contrib-hogan.git"
+    "url": "git://github.com/vanetix/grunt-templates-hogan.git"
   },
   "scripts": {
     "test": "grunt"

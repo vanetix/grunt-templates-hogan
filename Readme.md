@@ -1,15 +1,15 @@
-# grunt-contrib-hogan [![Build Status](https://secure.travis-ci.org/vanetix/grunt-contrib-hogan.png?branch=master)](https://travis-ci.org/vanetix/grunt-contrib-hogan)
+# grunt-templates-hogan [![Build Status](https://secure.travis-ci.org/vanetix/grunt-templates-hogan.png?branch=master)](https://travis-ci.org/vanetix/grunt-templates-hogan)
 
 Hogan template compiler task for grunt.
 
 
 ## Getting Started
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-contrib-hogan`
+Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-templates-hogan`
 
 Then add this line to your project's `grunt.js` gruntfile:
 
 ```javascript
-grunt.loadNpmTasks('grunt-contrib-hogan');
+grunt.loadNpmTasks('grunt-templates-hogan');
 ```
 
 [grunt]: http://gruntjs.com/
