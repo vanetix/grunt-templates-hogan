@@ -1,6 +1,6 @@
 /*
  * grunt--contrib-hogan
- * https://github.com/vanetix/grunt-contrib-hogan
+ * https://github.com/vanetix/grunt-templates-hogan
  *
  * Copyright (c) 2012 Matt McFarland
  * Licensed under the MIT license.
@@ -52,8 +52,9 @@ module.exports = function(grunt) {
         }
 
         filename = options.defaultName(file);
+        var contents = src.replace(/\"/g, "\\\"").split(require("os").EOL).join('\\r"+"\\n');
         output.push(nsInfo.namespace +
-          "[" + JSON.stringify(filename) + "] = new Hogan.Template(" + compiled + ");");
+          "[" + JSON.stringify(filename) + "] = new Hogan.Template(" + compiled + ", \"" + contents + "\", Hogan, {});");
       });
 
       if(output.length > 0) {
@@ -61,34 +62,41 @@ module.exports = function(grunt) {
 
         if(options.amdWrapper) {
           if(options.prettify) {
-            output.forEach(function(line, idx) {
-              output[idx] = "  " + line;
+            output = output.map(function(line) {
+              return "  " + line;
             });
           }
+
           if(options.amdRequire && options.amdRequire instanceof Object) {
             head = ["define(["];
             moduleNames = [];
             variableNames = [];
+
             for (var key in options.amdRequire) {
               if("string" !== typeof options.amdRequire[key]) {
                 grunt.fail.warn("options.amdRequire should be a object of {String:String}.");
                 continue;
               }
+
               moduleNames.push("'" + key + "'");
               variableNames.push(options.amdRequire[key]);
             }
+
             head.push(moduleNames.join(","));
             head.push("], function(", variableNames.join(","), ") {");
             output.unshift(head.join(''));
           } else {
             output.unshift("define(function() {");
           }
-          output.push("  return " + nsInfo.namespace + ";\n});");
+
+          output.push((options.prettify ? "  " : "") + "return " + nsInfo.namespace + ";\n});");
         }
         if(options.commonJsWrapper) {
-          output.push("module.exports = " + nsInfo.namespace + ";");
+          output.push("\nif(typeof module !== 'undefined' && typeof module.exports !== 'undefined') {");
+          output.push("  module.exports = " + nsInfo.namespace + ";");
+          output.push("}");
         }
-        grunt.file.write(files.dest, output.join("\n\n"));
+        grunt.file.write(files.dest, output.join("\n"));
         grunt.log.writeln("File '" + files.dest + "' created.");
         output = [];
       }

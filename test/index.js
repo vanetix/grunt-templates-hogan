@@ -128,5 +128,18 @@ exports.hogan = {
     test.equal(expect, result, "should build a template wrapped for CommonJS");
 
     return test.done();
+  },
+
+  helper: function(test) {
+    var expect,
+        result;
+
+    test.expect(1);
+
+    expect = normalize(grunt.file.read("test/expected/helper.js"));
+    result = normalize(grunt.file.read("build/helper.js"));
+    test.equal(expect, result, "should build a template with helper");
+
+    return test.done();
   }
 };

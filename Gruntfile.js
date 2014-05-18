@@ -86,6 +86,11 @@ module.exports = function(grunt) {
         files: {
           "build/commonJsWrapper.js": ["test/fixtures/template.html"]
         }
+      },
+      helper: {
+        files:{
+          "build/helper.js": ["test/fixtures/template2.html"]
+        }
       }
     }
   });

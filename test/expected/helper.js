@@ -1,0 +1,2 @@
+this["Templates"] = this["Templates"] || {};
+this["Templates"]["test/fixtures/template2.html"] = new Hogan.Template(function(c,p,i){var _=this;_.b(i=i||"");_.b("<div>");_.b("\n" + i);_.b("	");if(_.s(_.f("isAdmin",c,p,1),c,p,0,19,23,"{{ }}")){_.rs(c,p,function(c,p,_){_.b("Drop");});c.pop();}_.b("\n" + i);_.b("</div>");return _.fl();;}, "<div>\r"+"\n	{{#isAdmin}}Drop{{/isAdmin}}\r"+"\n</div>", Hogan, {});
