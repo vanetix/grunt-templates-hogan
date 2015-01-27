@@ -136,14 +136,7 @@ hogan: {
     }
 ```
 
-## Release History
-- 0.2.3 - Add option for custom AMD dependencies. Thanks [@cconger](https://github.com/cconger)!
-- 0.2.2 - Fix bug when compiling multiple files in a single target. Thanks [@mikejestes](https://github.com/mikejestes)!
-- 0.2.0 - Can now use the commonJS wrapper option. Thanks [@smhg](https://github.com/smhg)!
-- 0.1.0 - Updated for grunt release 0.4
-- 0.0.2 - No longer have to initialize a new Hogan.Template for every template you want to use.
-- 0.0.1 - Initial release
-
 ## License
-Copyright (c) 2012 Matt McFarland
+
+Copyright (c) 2012 Matt McFarland and Contributors
 Licensed under the MIT license.
