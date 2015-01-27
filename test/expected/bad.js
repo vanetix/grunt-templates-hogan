@@ -1,2 +1,2 @@
 this["Templates"] = this["Templates"] || {};
-this["Templates"]["test/fixtures/it's-a-bad-name.html"] = new Hogan.Template(function(c,p,i){var _=this;_.b(i=i||"");_.b("Gonna have a bad time compiling.");return _.fl();;});
+this["Templates"]["test/fixtures/it's-a-bad-name.html"] = new Hogan.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("Gonna have a bad time compiling.");return t.fl(); },partials: {}, subs: {  }});
