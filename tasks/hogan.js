@@ -106,7 +106,7 @@ module.exports = function(grunt) {
           var jsExtension = files.orig && files.orig.ext ? files.orig.ext : '.js';
           var modName = path.relative(options.tsdModuleBase, files.dest.replace(jsExtension, ''));
 
-          var tsdTemplate = 'declare module "<%= moduleName %>" {\n  export var <%= filename %>:{\n    render(params?:Object):HTMLElement;\n  };\n}';
+          var tsdTemplate = 'declare module "<%= moduleName %>" {\n  export var <%= filename %>:{\n    render(params?:Object):string;\n  };\n}';
           var tsdOutput = grunt.template.process(tsdTemplate, {data: {moduleName: modName, filename: filename}});
           var tsdDestination = files.dest.replace('.js', options.tsdExtension);
 
