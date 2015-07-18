@@ -9,7 +9,8 @@
 module.exports = function(grunt) {
 
   var Hogan = require('hogan.js'),
-      helpers = require('grunt-lib-contrib').init(grunt);
+      helpers = require('grunt-lib-contrib').init(grunt),
+      path = require('path');
 
   /**
    * Hogan grunt task
@@ -25,7 +26,10 @@ module.exports = function(grunt) {
       templateOptions: { asString: true },
       defaultName: function(filename) {
         return filename;
-      }
+      },
+      generateTsd: false,
+      tsdModuleBase: '',
+      tsdExtension: '.d.ts'
     });
 
     nsInfo = helpers.getNamespaceDeclaration(options.namespace);
@@ -98,6 +102,17 @@ module.exports = function(grunt) {
         grunt.file.write(files.dest, output.join("\n"));
         grunt.log.writeln("File '" + files.dest + "' created.");
         output = [];
+        if(options.generateTsd) {
+          var jsExtension = files.orig && files.orig.ext ? files.orig.ext : '.js';
+          var modName = path.relative(options.tsdModuleBase, files.dest.replace(jsExtension, ''));
+
+          var tsdTemplate = 'declare module "<%= moduleName %>" {\n  export var <%= filename %>:{\n    render(params?:Object):HTMLElement;\n  };\n}';
+          var tsdOutput = grunt.template.process(tsdTemplate, {data: {moduleName: modName, filename: filename}});
+          var tsdDestination = files.dest.replace('.js', options.tsdExtension);
+
+          grunt.file.write(tsdDestination, tsdOutput);
+          grunt.log.writeln("TypeScript definition file '" + tsdDestination + " created.");
+        }
       }
 
     });

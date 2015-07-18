@@ -119,6 +119,15 @@ options: {
 ### templateOptions `object`
 Any options that might need to be passed to the `Hogan.compile()` function.
 
+### generateTsd `boolean`
+Generate a TypeScript definition file alongside the output.
+
+### tsdModuleBase `string`
+When `generateTsd` is true, set the root of your TypeScript project. Optional, but highly recommended for use with `generateTsd`.
+
+### tsdExtension `string`
+When `generateTsd` is true, set the extension of the generated definition file. Defaults to `.d.ts`.
+
 ## Configuration example
 ```javascript
 hogan: {
@@ -134,6 +143,35 @@ hogan: {
         }
       }
     }
+```
+
+## TypeScript configuration example
+
+*Example:*
+```javascript
+files: [
+  {
+    expand: true,
+    cwd: 'src/templates/',
+    dest: 'src/ts/generated/templates',
+    src: ['**/*'],
+    filter: 'isFile',
+    ext: '.js'
+  }
+]
+options: {
+  generateTsd: true,
+  tsdModuleBase: 'src/ts'
+}
+```
+
+As written above, this will generate .d.ts files like this:
+```typescript
+declare module "generated/templates/myTemplate" {
+  export var myTemplate:{
+    render(params?:Object):HTMLElement;
+  };
+}
 ```
 
 ## License
