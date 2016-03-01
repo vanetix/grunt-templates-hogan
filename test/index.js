@@ -128,5 +128,18 @@ exports.hogan = {
     test.equal(expect, result, "should build a template wrapped for CommonJS");
 
     return test.done();
+  },
+
+  typescriptDefinition: function(test) {
+    var expect,
+        result;
+
+    test.expect(1);
+
+    expect = normalize(grunt.file.read("test/expected/typescriptDefinition.d.ts"));
+    result = normalize(grunt.file.read("build/typescriptDefinition.d.ts"));
+    test.equal(expect, result, "should build a TypeScript definition for a template");
+
+    return test.done();
   }
 };

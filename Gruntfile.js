@@ -86,6 +86,17 @@ module.exports = function(grunt) {
         files: {
           "build/commonJsWrapper.js": ["test/fixtures/template.html"]
         }
+      },
+      typescriptDefinition: {
+        options: {
+          defaultName: function(filename) {
+            return filename.split('/').pop().replace('.html', '');
+          },
+          generateTsd: true
+        },
+        files: {
+          "build/typescriptDefinition.js": ["test/fixtures/template.html"]
+        }
       }
     }
   });
